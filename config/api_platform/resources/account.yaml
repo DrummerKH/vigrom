@@ -1,0 +1,19 @@
+App\Api\Resource\Account\AccountResource:
+    collectionOperations:
+        getAccounts:
+            method: GET
+            path: /accounts
+            controller: App\Api\Controller\Account\GetAccountsCollection
+            normalization_context:
+                groups:
+                    - account:read
+    itemOperations:
+        getAccount:
+            method: GET
+            controller: App\Api\Controller\Account\GetAccountItem
+            defaults:
+                _api_receive: false
+            path: /accounts/{id}
+            normalization_context:
+                groups:
+                    - account:read

@@ -1,0 +1,23 @@
+App\Api\Resource\Transaction\TransactionResource:
+    collectionOperations:
+        createTransaction:
+            method: POST
+            path: /wallets/{walletId}/transactions
+            controller: App\Api\Controller\Transaction\CreateTransaction
+            normalization_context:
+                groups:
+                    - transaction:read
+            denormalization_context:
+                groups:
+                    - transaction:create
+                    -
+    itemOperations:
+        getTransaction:
+            method: GET
+            path: /transactions/{id}
+            controller: App\Api\Controller\Transaction\GetTransactionItem
+            defaults:
+                _api_receive: false
+            normalization_context:
+                groups:
+                    - transaction:read

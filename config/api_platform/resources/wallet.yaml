@@ -1,0 +1,21 @@
+App\Api\Resource\Wallet\WalletResource:
+    collectionOperations:
+        getWallets:
+            method: GET
+            controller: App\Api\Controller\Wallet\GetWalletsCollection
+            path: /wallets
+            normalization_context:
+                groups:
+                    - wallet:read
+                    - account:read
+    itemOperations:
+        getWallet:
+            method: GET
+            controller: App\Api\Controller\Wallet\GetWalletItem
+            defaults:
+                _api_receive: false
+            path: /wallets/{id}
+            normalization_context:
+                groups:
+                    - wallet:read
+                    - account:read
