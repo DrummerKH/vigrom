@@ -25,6 +25,7 @@ docker exec vigrom-php ./bin/console cron:run
 ```
 Или одной командой:
 ```shell script
+docker-compose up --build -d && \
 docker exec vigrom-php composer install && \
 docker exec vigrom-php ./bin/console d:d:c && \
 docker exec vigrom-php ./bin/console d:m:m -n && \
